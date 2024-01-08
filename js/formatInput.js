@@ -81,7 +81,7 @@ sliderCost.noUiSlider.on('update', function(){
 const sliderDownPayment = document.getElementById('slider-downpayment');
 
 noUiSlider.create(sliderDownPayment, {
-    start: 12000000,
+    start: 6000000,
     connect: 'lower',
     // tooltips: true,
     step: 100000,
@@ -103,27 +103,27 @@ sliderDownPayment.noUiSlider.on('update', function(){
     calcMortgage();
 });
 
-// const sliderTerm = document.getElementById('slider-term');
+// Slider sliderTerm
+const sliderTerm = document.getElementById('slider-term');
 
-// noUiSlider.create(sliderTerm, {
-//     start: 12000000,
-//     connect: 'lower',
-//     // tooltips: true,
-//     step: 100000,
-//     range: {
-//         'min': 0,
-//         '50%':[10000000, 1000000],
-//         'max': 100000000
-//     },
-//     format: wNumb({
-//         decimals: 0,
-//         thousand: ' ',
-//         suffix: '',
-//     })
-// });
+noUiSlider.create(sliderTerm, {
+    start: 1,
+    connect: 'lower',
+    // tooltips: true,
+    step: 1,
+    range: {
+        'min': 1,
+        'max': 30
+    },
+    format: wNumb({
+        decimals: 0,
+        thousand: ' ',
+        suffix: '',
+    })
+});
 
-// sliderTerm.noUiSlider.on('update', function(){
-//     const sliderValue =  parseInt(sliderTerm.noUiSlider.get(true));
-//     cleaveTerm.setRawValue(sliderValue);
-//     calcMortgage();
-// });
+sliderTerm.noUiSlider.on('update', function(){
+    const sliderValue =  parseInt(sliderTerm.noUiSlider.get(true));
+    cleaveTerm.setRawValue(sliderValue);
+    calcMortgage();
+});
